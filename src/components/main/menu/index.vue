@@ -3,19 +3,19 @@
     <div class="menuLeft">
       <div class="menuText">
         <h1>美味佳餚</h1>
-        <P>我們熱賣的組合餐點</p>
+        <p>我們熱賣的組合餐點</p>
         <p>
           <span style="font-weight: bold; font-size: 24px;">主食-香烤蔬菜沙拉</span>
           ，選用新鮮的時令蔬菜經過特製調味後香烤而成，搭配新鮮沙拉葉、堅果和特製醬汁，清新可口，是健康飲食的首選。
-        </P>
+        </p>
         <p>
           <span style="font-weight: bold; font-size: 24px;">特調飲品-草莓冰沙</span>
           ，選用新鮮成熟的草莓，搭配冰塊和少許糖漿，打造清涼解渴的夏日必備飲品，味道清新酸甜。
-        </P>
+        </p>
         <p>
           <span style="font-weight: bold; font-size: 24px;">寵物餐點-寵物草莓冰淇淋</span>
           ，使用新鮮的草莓和特製配方製作而成，口感柔軟，清涼可口，是您的寵物在夏日的最愛零食之一。
-        </P>
+        </p>
         <p>這些菜單選項旨在為您和您的寵物提供多樣化、美味和均衡的飲食體驗，我們期待為您提供一個愉悅的用餐體驗。</p>
       </div>
     </div>

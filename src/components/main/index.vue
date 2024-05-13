@@ -3,6 +3,7 @@
     <Welcome />
     <About />
     <Menu />
+    <Shop />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import Welcome from './welcome/index.vue'
 import About from './about/index.vue'
 import Menu from './menu/index.vue'
+import Shop from './shop/index.vue'
 </script>
 
 <style lang="scss" scoped></style>
