@@ -109,6 +109,12 @@ const commodity = ref([
         height: 300px;
         border-radius: 20px;
         margin-bottom: 20px;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.2);
+          transition: all 0.5s;
+        }
       }
 
       h1 {

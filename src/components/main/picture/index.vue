@@ -147,6 +147,15 @@ const restaurant = ref([
       background: white;
       border-radius: 20px;
 
+      img {
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.2);
+          transition: all 0.5s;
+        }
+      }
+
       .el-carousel__item h3 {
         color: #5a4034;
         font-weight: bold;
