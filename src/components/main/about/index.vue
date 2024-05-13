@@ -22,7 +22,7 @@
 <style lang="scss" scoped>
 .aboutBox {
   width: 100%;
-  height: 80vh;
+  height: 864px;
   display: flex;
   justify-content: center;
   align-items: center;

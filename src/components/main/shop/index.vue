@@ -51,8 +51,8 @@ const commodity = ref([
 <style lang="scss" scoped>
 .shopBox {
   width: 100%;
-  height: 100vh;
-  background: #FFE5CA;
+  height: 972px;
+  background: #FFE0B5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,20 +106,21 @@ const commodity = ref([
 
       img {
         width: 80%;
-        height: 60%;
+        height: 300px;
         border-radius: 20px;
         margin-bottom: 20px;
       }
 
       h1 {
+        height: 50px;
         font-size: 1.5em;
         font-weight: 700;
         color: #5a4034;
-        margin-bottom: 10px;
         font-family: DFKai-SB;
       }
 
       h2 {
+        height: 30px;
         font-size: 1em;
         font-weight: 700;
         color: #5a4034;
@@ -128,6 +129,7 @@ const commodity = ref([
       }
 
       p {
+        height: 100px;
         font-size: 0.8em;
         font-weight: 400;
         color: #654735;

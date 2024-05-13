@@ -14,7 +14,7 @@
 <style lang="scss" scoped>
 .welcomeBox {
   width: 100%;
-  height: 100vh;
+  height: 1080px;
   background: no-repeat url('@/assets/welcome/Welcome-Bg.png');
   background-size: cover;
   opacity: 0.85;

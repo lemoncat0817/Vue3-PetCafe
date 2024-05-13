@@ -32,7 +32,7 @@
 <style lang="scss" scoped>
 .menuBox {
   width: 100%;
-  height: 100vh;
+  height: 864px;
   display: flex;
   justify-content: center;
   align-items: center;
