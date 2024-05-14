@@ -37,7 +37,7 @@ import { ref } from 'vue'
 const comment = ref([
   {
     img: 'src/assets/picture/person1.png',
-    text: '狗狗很開心！這裡真是個寵物天堂！'
+    text: '我的貓咪愛上這裡的美食！'
   },
   {
     img: 'src/assets/picture/person2.png',
@@ -49,11 +49,11 @@ const comment = ref([
   },
   {
     img: 'src/assets/picture/person4.png',
-    text: '菜色精緻，味道濃郁，完美的饗宴！'
+    text: '美味驚艷，讓人欲罷不能！'
   },
   {
-    img: 'src/assets/picture/handSomeCat.png',
-    text: '我的貓咪愛上這裡的美食！'
+    img: 'src/assets/picture/person5.png',
+    text: '狗狗很開心！這裡真是個寵物天堂！'
   }
 ])
 const restaurant = ref([
