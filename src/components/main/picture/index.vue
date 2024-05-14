@@ -1,39 +1,84 @@
 <template>
   <div class="pictureBox">
-    <div class="comment">
-      <h1>
-        五星好評
-        <el-icon v-for="item in 5" :key="item" style="color: yellow; ">
-          <StarFilled />
-        </el-icon>
-      </h1>
-      <div class="carousel">
-        <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none"
-          :pause-on-hover="false">
-          <el-carousel-item v-for="item in comment" :key="item">
-            <img style="width: 350px; height: 250px;" :src="item.img" alt="" />
-            <h3>{{ item.text }}</h3>
-          </el-carousel-item>
-        </el-carousel>
+    <div class="title" :class="{ 'titleShow': isShowTitle }">
+      <h1>評論&用餐環境</h1>
+      <p>我們一直努力為每一位顧客提供最好的用餐體驗，</p>
+      <p>並且對於您的肯定感到非常欣慰。</p>
+      <p>我們精心設計的用餐環境融合了舒適和美感，</p>
+      <p>為您和您的寵物提供了一個愉快的用餐場所。</p>
+    </div>
+    <div class="content" :class="{ 'contentShow': isShowContent }">
+      <div class="comment">
+        <h1>
+          五星好評
+          <el-icon v-for="item in 5" :key="item" style="color: yellow; ">
+            <StarFilled />
+          </el-icon>
+        </h1>
+        <div class="carousel">
+          <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none"
+            :pause-on-hover="false">
+            <el-carousel-item v-for="item in comment" :key="item">
+              <img style="width: 350px; height: 250px;" :src="item.img" alt="" />
+              <h3>{{ item.text }}</h3>
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+      </div>
+      <div class="restaurant">
+        <h1> 用餐環境 </h1>
+        <div class="carousel">
+          <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none">
+            <el-carousel-item v-for="item in restaurant" :key="item">
+              <img style="width: 350px; height: 300px;" :src="item.img" alt="" />
+            </el-carousel-item>
+          </el-carousel>
+        </div>
       </div>
     </div>
-    <div class="restaurant">
-      <h1> 用餐環境 </h1>
-      <div class="carousel">
-        <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none">
-          <el-carousel-item v-for="item in restaurant" :key="item">
-            <img style="width: 350px; height: 300px;" :src="item.img" alt="" />
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-    </div>
-
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
+// 控制是否顯示菜單
+const isShowTitle = ref(false)
+const isShowContent = ref(false)
+// 組件成功渲染後
+nextTick(() => {
+  // 監聽滾動位置變化
+  watch(() => scrollPosition.value, () => {
+    // 如果高度大於或等於360
+    // 則顯示菜單
+    if (scrollPosition.value >= 3900) {
+      isShowTitle.value = true
+    }
+    if (scrollPosition.value >= 4400) {
+      isShowContent.value = true
+    }
+  })
+})
+// 儲存監聽滾動位置的變數
+const scrollPosition = ref(0)
+// 監聽滾動位置
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY
+  console.log(scrollPosition.value);
+}
+// 在組件掛載後添加監聽事件
+// 以便在組件卸載時移除監聽事件
+// 避免造成資源浪費
+// 組件掛載
+onMounted(() => {
+  // 添加監聽事件
+  window.addEventListener('scroll', handleScroll)
+})
+// 組件卸載
+onBeforeUnmount(() => {
+  // 移除監聽事件
+  window.removeEventListener('scroll', handleScroll)
+})
+// 評論資料
 const comment = ref([
   {
     img: 'src/assets/picture/person1.png',
@@ -75,22 +120,26 @@ const restaurant = ref([
 <style lang="scss" scoped>
 .pictureBox {
   width: 100%;
-  height: 756px;
+  height: 864px;
   font-size: 20px;
   background: no-repeat url('@/assets/picture/Picture-Bg.png');
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
-  .comment {
-    width: 100%;
-    height: 100%;
+  .title {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    width: 40%;
+    height: 100%;
+    margin-top: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
 
     h1 {
       font-size: 2em;
@@ -98,78 +147,125 @@ const restaurant = ref([
       color: #5a4034;
       margin-bottom: 10px;
       font-family: DFKai-SB;
-      margin-bottom: 30px;
     }
 
-    .carousel {
-      width: 450px;
-      height: 400px;
+    p {
+      font-size: 1em;
+      font-weight: 400;
+      color: #654735;
+      line-height: 26px;
+      text-align: center;
+      margin: 10px 0;
+    }
+  }
+
+  .titleShow {
+    opacity: 1;
+  }
+
+  .content {
+    flex: 3.5;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transform: translateX(100px);
+    transition: all 1.2s ease-in-out;
+    opacity: 0;
+
+    .comment {
+      width: 100%;
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: white;
-      border-radius: 20px;
+      flex-direction: column;
 
+      h1 {
+        font-size: 2em;
+        font-weight: 700;
+        color: #5a4034;
+        margin-bottom: 10px;
+        font-family: DFKai-SB;
+        margin-bottom: 30px;
+      }
 
-      .el-carousel__item {
+      .carousel {
+        width: 450px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
         border-radius: 20px;
 
-        img {
-          border-radius: 20px;
-        }
 
-        h3 {
-          color: #5a4034;
-          font-weight: bold;
-          height: 50px;
-          text-align: center;
-          line-height: 50px;
+        .el-carousel__item {
+          border-radius: 20px;
+
+          img {
+            border-radius: 20px;
+          }
+
+          h3 {
+            color: #5a4034;
+            font-weight: bold;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+          }
+        }
+      }
+    }
+
+    .restaurant {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+
+      h1 {
+        font-size: 2em;
+        font-weight: 700;
+        color: #5a4034;
+        margin-bottom: 10px;
+        font-family: DFKai-SB;
+        margin-bottom: 30px;
+      }
+
+      .carousel {
+        width: 450px;
+        height: 400px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        border-radius: 20px;
+
+        .el-carousel__item {
+          border-radius: 20px;
+
+          img {
+            cursor: pointer;
+            border-radius: 20px;
+
+            &:hover {
+              transform: scale(1.2);
+              transition: all 0.5s;
+            }
+          }
         }
       }
     }
   }
 
-  .restaurant {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-
-    h1 {
-      font-size: 2em;
-      font-weight: 700;
-      color: #5a4034;
-      margin-bottom: 10px;
-      font-family: DFKai-SB;
-      margin-bottom: 30px;
-    }
-
-    .carousel {
-      width: 450px;
-      height: 400px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: white;
-      border-radius: 20px;
-
-      .el-carousel__item {
-        border-radius: 20px;
-
-        img {
-          cursor: pointer;
-          border-radius: 20px;
-
-          &:hover {
-            transform: scale(1.2);
-            transition: all 0.5s;
-          }
-        }
-      }
-    }
+  .contentShow {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 </style>

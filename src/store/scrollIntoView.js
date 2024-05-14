@@ -8,9 +8,5 @@ export const useScrollIntoViewStore = defineStore('scrollIntoView', () => {
   const staff = ref()
   const shop = ref()
   const picture = ref()
-
-  onMounted(() => {
-    console.log(picture.value);
-  })
   return { welcome, about, menu, staff, shop, picture }
 })

@@ -29,6 +29,8 @@ onMounted(() => {
   scrollIntoViewStore.shop = document.getElementById('shop')
   scrollIntoViewStore.picture = document.getElementById('picture')
 })
+
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+</style>

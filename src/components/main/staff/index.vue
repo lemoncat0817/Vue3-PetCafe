@@ -1,13 +1,13 @@
 <template>
   <div class="staffBox">
-    <div class="title">
+    <div class="title" :class="{ 'titleShow': isShowTitle }">
       <h1>毛孩子天地</h1>
       <p>這些可愛的寵物們每天都在這裡迎接著訪客，帶來無盡的歡樂和愛意。 </p>
       <p>無論你是想與他們一起玩耍、享受陽光，還是只是想給他們一個溫暖的擁抱，</p>
       <p>這裡都是你和寵物共度美好時光的最佳場所！</p>
     </div>
     <div class="content">
-      <div class="pets" v-for="item in pets" :key="item.name">
+      <div class="pets" v-for="item in pets" :key="item.name" :class="{ 'contentShow': isShowContent }">
         <img :src="item.img" :alt="item.variety">
         <h1>{{ item.name }}</h1>
         <p>{{ item.content }}</p>
@@ -17,8 +17,45 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
+// 控制是否顯示菜單
+const isShowTitle = ref(false)
+const isShowContent = ref(false)
+// 組件成功渲染後
+nextTick(() => {
+  // 監聽滾動位置變化
+  watch(() => scrollPosition.value, () => {
+    // 如果高度大於或等於360
+    // 則顯示菜單
+    if (scrollPosition.value >= 2000) {
+      isShowTitle.value = true
+    }
+    if (scrollPosition.value >= 2300) {
+      isShowContent.value = true
+    }
+  })
+})
+// 儲存監聽滾動位置的變數
+const scrollPosition = ref(0)
+// 監聽滾動位置
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY
+  console.log(scrollPosition.value);
+}
+// 在組件掛載後添加監聽事件
+// 以便在組件卸載時移除監聽事件
+// 避免造成資源浪費
+// 組件掛載
+onMounted(() => {
+  // 添加監聽事件
+  window.addEventListener('scroll', handleScroll)
+})
+// 組件卸載
+onBeforeUnmount(() => {
+  // 移除監聽事件
+  window.removeEventListener('scroll', handleScroll)
+})
+// 店寵資料
 const pets = ref([
   {
     name: '巧克力（Chocolate）',
@@ -68,6 +105,8 @@ const pets = ref([
     width: 40%;
     height: 100%;
     margin-top: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
 
     h1 {
       font-size: 2em;
@@ -87,6 +126,10 @@ const pets = ref([
     }
   }
 
+  .titleShow {
+    opacity: 1;
+  }
+
   .content {
     flex: 3.5;
     display: flex;
@@ -95,7 +138,6 @@ const pets = ref([
     width: 100%;
     height: 100%;
 
-
     .pets {
       width: 25%;
       height: 80%;
@@ -103,6 +145,9 @@ const pets = ref([
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      transform: rotateY(0deg);
+      opacity: 0;
+      transition: all 2s ease-in-out;
 
       img {
         width: 80%;
@@ -112,8 +157,8 @@ const pets = ref([
         cursor: pointer;
 
         &:hover {
-          transform: rotateY(360deg);
-          transition: all 1.2s;
+          transform: scale(1.2);
+          transition: all 0.8s ease-in-out;
         }
       }
 
@@ -135,6 +180,13 @@ const pets = ref([
         margin: 10px 30px;
       }
     }
+
+    .contentShow {
+      transform: rotateY(360deg);
+      opacity: 1;
+    }
   }
+
+
 }
 </style>

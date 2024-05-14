@@ -1,12 +1,12 @@
 <template>
   <div class="shopBox">
-    <div class="title">
+    <div class="title" :class="{ 'titleShow': isShowTitle }">
       <h1>寵物零食</h1>
       <p>我們也提供美味健康的寵物點心。</p>
       <p>採用天然成分，品質優良，讓您放心為您的寵物選擇最好的。</p>
     </div>
     <div class="content">
-      <div class="commodity" v-for="item in commodity" :key="item.title">
+      <div class="commodity" v-for="item in commodity" :key="item.title" :class="{ 'contentShow': isShowContent }">
         <img :src="item.img" alt="petsSnack" />
         <h1>{{ item.title }}</h1>
         <h2>
@@ -21,8 +21,45 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
+// 控制是否顯示菜單
+const isShowTitle = ref(false)
+const isShowContent = ref(false)
+// 組件成功渲染後
+nextTick(() => {
+  // 監聽滾動位置變化
+  watch(() => scrollPosition.value, () => {
+    // 如果高度大於或等於360
+    // 則顯示菜單
+    if (scrollPosition.value >= 3000) {
+      isShowTitle.value = true
+    }
+    if (scrollPosition.value >= 3440) {
+      isShowContent.value = true
+    }
+  })
+})
+// 儲存監聽滾動位置的變數
+const scrollPosition = ref(0)
+// 監聽滾動位置
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY
+  console.log(scrollPosition.value);
+}
+// 在組件掛載後添加監聽事件
+// 以便在組件卸載時移除監聽事件
+// 避免造成資源浪費
+// 組件掛載
+onMounted(() => {
+  // 添加監聽事件
+  window.addEventListener('scroll', handleScroll)
+})
+// 組件卸載
+onBeforeUnmount(() => {
+  // 移除監聽事件
+  window.removeEventListener('scroll', handleScroll)
+})
+// 商品資料
 const commodity = ref([
   {
     price: 180,
@@ -69,6 +106,8 @@ const commodity = ref([
     width: 40%;
     height: 100%;
     margin-top: 20px;
+    opacity: 0;
+    transition: all 1s ease-in-out;
 
     h1 {
       font-size: 2em;
@@ -88,6 +127,9 @@ const commodity = ref([
     }
   }
 
+  .titleShow {
+    opacity: 1;
+  }
 
   .content {
     flex: 3.5;
@@ -106,6 +148,9 @@ const commodity = ref([
       flex-direction: column;
       background: white;
       border-radius: 20px;
+      transform: translateX(-100px);
+      transition: all 1.2s ease-in-out;
+      opacity: 0;
 
       img {
         width: 80%;
@@ -146,6 +191,11 @@ const commodity = ref([
         text-align: center;
         margin: 10px 30px;
       }
+    }
+
+    .contentShow {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 
