@@ -44,7 +44,6 @@ const scrollPosition = ref(0)
 // 監聽滾動位置
 const handleScroll = () => {
   scrollPosition.value = window.scrollY
-  console.log(scrollPosition.value);
 }
 // 在組件掛載後添加監聽事件
 // 以便在組件卸載時移除監聽事件

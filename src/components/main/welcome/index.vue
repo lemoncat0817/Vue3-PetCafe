@@ -32,12 +32,16 @@
       font-size: 3em;
       font-weight: bold;
       color: #fff;
+      text-shadow: 4.5px 3px 1px #ff0054;
+      transition: text-shadow 1.5s ease-in-out;
     }
 
     h4 {
       margin-top: 20px;
       font-size: 1.5em;
       color: #fff;
+      text-shadow: 3.5px 2px 1px #ff0054;
+      transition: text-shadow 1.5s ease-in-out;
     }
   }
 }

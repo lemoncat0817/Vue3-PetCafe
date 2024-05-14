@@ -104,7 +104,12 @@ nextTick(() => {
       margin-left: 10px;
       font-size: 2em;
       font-weight: bold;
-      color: #5a4034;
+      color: transparent;
+      background: #5a4034 linear-gradient(to left, transparent, #fff, transparent) no-repeat 0 0;
+      background-size: 20% 100%;
+      background-position: 0 0;
+      background-clip: text;
+      animation: shine 7.5s infinite;
     }
   }
 
@@ -115,6 +120,17 @@ nextTick(() => {
       float: right;
       margin-right: 20px;
     }
+  }
+}
+
+// 文字閃爍效果
+@keyframes shine {
+  from {
+    background-position: 0% 0%;
+  }
+
+  to {
+    background-position: 100% 100%;
   }
 }
 </style>

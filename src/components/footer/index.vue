@@ -1,5 +1,5 @@
 <template>
-  <div class="footerBox">
+  <div class="footerBox" :class="{ 'footerShow': isShowFooter }">
     <div class="footTop">
       <div class="content">
         <p>本餐廳目前無提供電話訂位服務</p>
@@ -20,6 +20,39 @@
 </template>
 
 <script setup>
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
+// 控制是否顯示菜單
+const isShowFooter = ref(false)
+// 組件成功渲染後
+nextTick(() => {
+  // 監聽滾動位置變化
+  watch(() => scrollPosition.value, () => {
+    // 如果高度大於或等於360
+    // 則顯示菜單
+    if (scrollPosition.value >= 4800) {
+      isShowFooter.value = true
+    }
+  })
+})
+// 儲存監聽滾動位置的變數
+const scrollPosition = ref(0)
+// 監聽滾動位置
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY
+}
+// 在組件掛載後添加監聽事件
+// 以便在組件卸載時移除監聽事件
+// 避免造成資源浪費
+// 組件掛載
+onMounted(() => {
+  // 添加監聽事件
+  window.addEventListener('scroll', handleScroll)
+})
+// 組件卸載
+onBeforeUnmount(() => {
+  // 移除監聽事件
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style lang="scss" scoped>
@@ -32,6 +65,8 @@
   align-items: center;
   flex-direction: column;
   font-size: 20px;
+  opacity: 0;
+  transition: all 0.8s ease-in-out;
 
   .footTop {
     display: flex;
@@ -93,5 +128,9 @@
     }
   }
 
+}
+
+.footerShow {
+  opacity: 1;
 }
 </style>

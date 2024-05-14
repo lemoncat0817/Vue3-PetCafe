@@ -27,7 +27,7 @@ nextTick(() => {
   watch(() => scrollPosition.value, () => {
     // 如果高度大於或等於360
     // 則顯示菜單
-    if (scrollPosition.value >= 2000) {
+    if (scrollPosition.value >= 2200) {
       isShowTitle.value = true
     }
     if (scrollPosition.value >= 2300) {
@@ -40,7 +40,6 @@ const scrollPosition = ref(0)
 // 監聽滾動位置
 const handleScroll = () => {
   scrollPosition.value = window.scrollY
-  console.log(scrollPosition.value);
 }
 // 在組件掛載後添加監聽事件
 // 以便在組件卸載時移除監聽事件
