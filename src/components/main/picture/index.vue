@@ -9,7 +9,7 @@
       </h1>
       <div class="carousel">
         <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none"
-          pause-on-hover="false">
+          :pause-on-hover="false">
           <el-carousel-item v-for="item in comment" :key="item">
             <img style="width: 350px; height: 250px;" :src="item.img" alt="" />
             <h3>{{ item.text }}</h3>
@@ -18,10 +18,9 @@
       </div>
     </div>
     <div class="restaurant">
-      <h1> 餐廳環境 </h1>
+      <h1> 用餐環境 </h1>
       <div class="carousel">
-        <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none"
-          pause-on-hover="false">
+        <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none">
           <el-carousel-item v-for="item in restaurant" :key="item">
             <img style="width: 350px; height: 300px;" :src="item.img" alt="" />
           </el-carousel-item>
@@ -76,9 +75,10 @@ const restaurant = ref([
 <style lang="scss" scoped>
 .pictureBox {
   width: 100%;
-  height: 648px;
-  background: #ECCDB4;
+  height: 756px;
   font-size: 20px;
+  background: no-repeat url('@/assets/picture/Picture-Bg.png');
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -110,12 +110,21 @@ const restaurant = ref([
       background: white;
       border-radius: 20px;
 
-      .el-carousel__item h3 {
-        color: #5a4034;
-        font-weight: bold;
-        height: 50px;
-        text-align: center;
-        line-height: 50px;
+
+      .el-carousel__item {
+        border-radius: 20px;
+
+        img {
+          border-radius: 20px;
+        }
+
+        h3 {
+          color: #5a4034;
+          font-weight: bold;
+          height: 50px;
+          text-align: center;
+          line-height: 50px;
+        }
       }
     }
   }
@@ -147,21 +156,18 @@ const restaurant = ref([
       background: white;
       border-radius: 20px;
 
-      img {
-        cursor: pointer;
+      .el-carousel__item {
+        border-radius: 20px;
 
-        &:hover {
-          transform: scale(1.2);
-          transition: all 0.5s;
+        img {
+          cursor: pointer;
+          border-radius: 20px;
+
+          &:hover {
+            transform: scale(1.2);
+            transition: all 0.5s;
+          }
         }
-      }
-
-      .el-carousel__item h3 {
-        color: #5a4034;
-        font-weight: bold;
-        height: 50px;
-        text-align: center;
-        line-height: 50px;
       }
     }
   }

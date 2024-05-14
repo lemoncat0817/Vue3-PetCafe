@@ -45,7 +45,7 @@
     align-items: center;
     font-size: 20px;
     font-family: 'monospace', DFKai-SB;
-    background: #FFE0B5;
+    background: #e6c4e7;
 
     .story {
       width: 60%;

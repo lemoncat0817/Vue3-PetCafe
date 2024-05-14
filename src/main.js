@@ -9,6 +9,10 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
   app.component(key, component)
 }
 app.use(ElementPlus)
+// 引入pinia
+import { createPinia } from 'pinia'
+const pinia = createPinia()
+app.use(pinia)
 // 重設scss
 import '@/styles/reset.scss'
 

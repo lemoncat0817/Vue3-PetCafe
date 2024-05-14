@@ -40,7 +40,7 @@
   .menuLeft {
     width: 45%;
     height: 100%;
-    background: #ECCDB4;
+    background: #e6c4e7;
     display: flex;
     justify-content: center;
     align-items: center;

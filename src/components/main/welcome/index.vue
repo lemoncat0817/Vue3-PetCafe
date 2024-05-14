@@ -16,8 +16,8 @@
   width: 100%;
   height: 1080px;
   background: no-repeat url('@/assets/welcome/Welcome-Bg.png');
-  background-size: cover;
-  opacity: 0.85;
+  background-size: 100% 100%;
+  opacity: 0.9;
   display: flex;
   justify-content: center;
   align-items: center;

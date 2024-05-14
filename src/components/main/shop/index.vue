@@ -36,14 +36,14 @@ const commodity = ref([
     salePrice: 135,
     img: 'src/assets/shop/petsSnack2.png',
     title: '花生香蕉餅',
-    content: '這款寵物零食是由天然成分製成，結合了新鮮的香蕉和甜美的蜂蜜，為您的寵物帶來溫暖的甜蜜滋味。'
+    content: '一款採用天然成分製作的寵物零食，完美結合了花生和香蕉的營養價值，為您的寵物帶來美味的口感和豐富的營養。'
   },
   {
     price: 220,
     salePrice: 200,
     img: 'src/assets/shop/petsSnack3.png',
     title: '蜂蜜香蕉餅',
-    content: '這款美味零食以新鮮的香蕉和營養豐富的南瓜為原料，採用天然成分，不含添加糖和人工色素，是您寵物的健康之選。'
+    content: '這款寵物零食是由天然成分製成，結合了新鮮的香蕉和甜美的蜂蜜，為您的寵物帶來溫暖的甜蜜滋味。'
   },
 ])
 </script>
@@ -52,7 +52,8 @@ const commodity = ref([
 .shopBox {
   width: 100%;
   height: 972px;
-  background: #FFE0B5;
+  background: no-repeat url('@/assets/shop/Shop-Bg.png');
+  background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +66,8 @@ const commodity = ref([
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 40%;
+    height: 100%;
     margin-top: 20px;
 
     h1 {
