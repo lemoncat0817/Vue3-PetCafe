@@ -7,23 +7,23 @@
       </div>
       <div class="menu">
         <el-anchor class="anchor" :offset="70" direction="horizontal">
-          <el-anchor-link style="margin-left: 10px; " :href="welcome">
-            <span>{{ welcomePage }}</span>
+          <el-anchor-link style="margin-left: 5px; " href="#welcome">
+            <span style=" font-weight: bold; color: #ADD8E6; ">主頁</span>
           </el-anchor-link>
-          <el-anchor-link :href="about">
-            <span>{{ aboutPage }}</span>
+          <el-anchor-link href="#about">
+            <span style=" font-weight: bold; color: #ADD8E6; ">關於我們</span>
           </el-anchor-link>
-          <el-anchor-link :href="menu">
-            <span>{{ menuPage }}</span>
+          <el-anchor-link href="#menu">
+            <span style=" font-weight: bold; color: #ADD8E6; ">美味佳餚</span>
           </el-anchor-link>
-          <el-anchor-link :href="staff">
-            <span>{{ staffPage }}</span>
+          <el-anchor-link href="#staff">
+            <span style=" font-weight: bold; color: #ADD8E6; ">毛孩子天地</span>
           </el-anchor-link>
-          <el-anchor-link :href="shop">
-            <span>{{ shopPage }}</span>
+          <el-anchor-link href="#shop">
+            <span style=" font-weight: bold; color: #ADD8E6; ">寵物零食</span>
           </el-anchor-link>
-          <el-anchor-link :href="picture">
-            <span>{{ picturePage }}</span>
+          <el-anchor-link href=" #picture">
+            <span style=" font-weight: bold; color: #ADD8E6; ">評論&用餐環境</span>
           </el-anchor-link>
         </el-anchor>
       </div>
@@ -37,23 +37,23 @@
               <el-dropdown-item>
                 <div class="dropDownMenu">
                   <el-anchor class="anchor" :offset="70" direction="horizontal">
-                    <el-anchor-link style="margin-left: 5px; " :href="welcome">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ welcomePage }}</span>
+                    <el-anchor-link style="margin-left: 5px; " href="#welcome">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">主頁</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="about">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ aboutPage }}</span>
+                    <el-anchor-link href="#about">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">關於我們</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="menu">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ menuPage }}</span>
+                    <el-anchor-link href="#menu">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">美味佳餚</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="staff">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ staffPage }}</span>
+                    <el-anchor-link href="#staff">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">毛孩子天地</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="shop">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ shopPage }}</span>
+                    <el-anchor-link href="#shop">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">寵物零食</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="picture">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ picturePage }}</span>
+                    <el-anchor-link href="#picture">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">評論&用餐環境</span>
                     </el-anchor-link>
                   </el-anchor>
                 </div>
@@ -72,23 +72,23 @@
               <el-dropdown-item>
                 <div class="dropDownMenu">
                   <el-anchor class="anchor" :offset="70">
-                    <el-anchor-link style="margin-left: 5px; " :href="welcome">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ welcomePage }}</span>
+                    <el-anchor-link style="margin-left: 5px; " href="#welcome">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">主頁</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="about">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ aboutPage }}</span>
+                    <el-anchor-link href="#about">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">關於我們</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="menu">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ menuPage }}</span>
+                    <el-anchor-link href="#menu">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">美味佳餚</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="staff">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ staffPage }}</span>
+                    <el-anchor-link href="#staff">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">毛孩子天地</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="shop">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ shopPage }}</span>
+                    <el-anchor-link href="#shop">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">寵物零食</span>
                     </el-anchor-link>
-                    <el-anchor-link :href="picture">
-                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ picturePage }}</span>
+                    <el-anchor-link href="#picture">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">評論&用餐環境</span>
                     </el-anchor-link>
                   </el-anchor>
                 </div>
@@ -102,9 +102,7 @@
 </template>
 
 <script setup>
-// 引入倉庫
-import { useScrollIntoViewStore } from '@/store/scrollIntoView'
-const scrollIntoViewStore = useScrollIntoViewStore()
+
 import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
 // 控制是否顯示菜單
 const isFixedHeader = ref(false)
@@ -129,19 +127,6 @@ onBeforeUnmount(() => {
   // 移除監聽事件
   window.removeEventListener('scroll', handleScroll)
 })
-// 定義要滾動到的組件名稱及其id
-const welcome = ref('')
-const welcomePage = ref('主頁')
-const about = ref('')
-const aboutPage = ref('關於我們')
-const menu = ref('')
-const menuPage = ref('美味佳餚')
-const staff = ref('')
-const staffPage = ref('毛孩子天地')
-const shop = ref('')
-const shopPage = ref('寵物零食')
-const picture = ref('')
-const picturePage = ref('評論&用餐環境')
 // 組件成功渲染後
 nextTick(() => {
   // 監聽滾動位置變化
@@ -154,25 +139,6 @@ nextTick(() => {
       isFixedHeader.value = false
     }
   })
-  // 獲取組件id
-  if (scrollIntoViewStore.welcome) {
-    welcome.value = `#${scrollIntoViewStore.welcome.id}`
-  }
-  if (scrollIntoViewStore.about) {
-    about.value = `#${scrollIntoViewStore.about.id}`
-  }
-  if (scrollIntoViewStore.menu) {
-    menu.value = `#${scrollIntoViewStore.menu.id}`
-  }
-  if (scrollIntoViewStore.staff) {
-    staff.value = `#${scrollIntoViewStore.staff.id}`
-  }
-  if (scrollIntoViewStore.shop) {
-    shop.value = `#${scrollIntoViewStore.shop.id}`
-  }
-  if (scrollIntoViewStore.picture) {
-    picture.value = `#${scrollIntoViewStore.picture.id}`
-  }
 })
 </script>
 

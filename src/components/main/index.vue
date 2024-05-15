@@ -17,19 +17,6 @@ import Menu from './menu/index.vue'
 import Staff from './staff/index.vue'
 import Shop from './shop/index.vue'
 import Picture from './picture/index.vue'
-import { onMounted } from 'vue'
-import { useScrollIntoViewStore } from '@/store/scrollIntoView'
-const scrollIntoViewStore = useScrollIntoViewStore()
-
-onMounted(() => {
-  scrollIntoViewStore.welcome = document.getElementById('welcome')
-  scrollIntoViewStore.about = document.getElementById('about')
-  scrollIntoViewStore.menu = document.getElementById('menu')
-  scrollIntoViewStore.staff = document.getElementById('staff')
-  scrollIntoViewStore.shop = document.getElementById('shop')
-  scrollIntoViewStore.picture = document.getElementById('picture')
-})
-
 </script>
 
 <style lang="scss" scoped></style>
