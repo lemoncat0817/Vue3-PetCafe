@@ -6,7 +6,7 @@
     <Staff id="staff" />
     <Shop id="shop" />
     <Picture id="picture" />
-    <el-backtop :right="20" :bottom="100" />
+    <el-backtop class="backtop" :right="15" :bottom="100" />
   </div>
 </template>
 
@@ -19,4 +19,43 @@ import Shop from './shop/index.vue'
 import Picture from './picture/index.vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.backtop {
+  opacity: 0.8;
+  animation: rotate 3s infinite;
+}
+
+// 響應式設計
+// 768px以下
+@media (max-width: 768px) {
+  .backtop {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotateY(360deg);
+
+  }
+
+  50% {
+    transform: rotate(0deg);
+
+  }
+
+  75% {
+    transform: rotateX(360deg);
+
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+</style>

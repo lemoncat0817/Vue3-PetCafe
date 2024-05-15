@@ -133,7 +133,7 @@ nextTick(() => {
   watch(() => scrollPosition.value, () => {
     // 如果高度大於或等於360
     // 則顯示菜單
-    if (scrollPosition.value >= 50) {
+    if (scrollPosition.value >= 30) {
       isFixedHeader.value = true
     } else {
       isFixedHeader.value = false
