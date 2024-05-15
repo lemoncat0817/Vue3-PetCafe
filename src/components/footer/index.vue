@@ -7,10 +7,12 @@
         <p><span style="margin-right: 5px; font-weight: bold;">餐廳地址:</span>貓貓市 肥貓區 貓爪路三段 貓尾巷5號</p>
       </div>
       <div class="link">
-        <img src="@/assets/footer/facebook.png" alt="facebook">
-        <img src="@/assets/footer/instagram.png" alt="instagram">
-        <p>可以追蹤我們的<span style="margin-right: 5px; font-weight: bold;">FaceBook</span>以及<span
-            style="margin-right: 5px; font-weight: bold;">Instagram</span>獲得最新資訊</p>
+
+        <p>可以追蹤我們的<span style="font-weight: bold;">FaceBook</span>
+          <img src="@/assets/footer/facebook.png" alt="facebook">以及<span style=" font-weight: bold;">Instagram</span>
+          <img src="@/assets/footer/instagram.png" alt="instagram">
+          來獲得最新資訊
+        </p>
       </div>
     </div>
     <div class=" footBottom">
@@ -72,12 +74,14 @@ onBeforeUnmount(() => {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     .content {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      height: 100%;
 
       p {
         font-size: 1em;
@@ -93,11 +97,11 @@ onBeforeUnmount(() => {
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100%;
 
       img {
         width: 30px;
         height: 30px;
-        margin: 0px 10px;
         cursor: pointer;
 
         &:hover {
@@ -117,7 +121,7 @@ onBeforeUnmount(() => {
   }
 
   .footBottom {
-    margin-top: 20px;
+    margin: 20px 0px;
 
     p {
       font-size: 1em;
@@ -127,10 +131,54 @@ onBeforeUnmount(() => {
       text-align: center;
     }
   }
-
 }
 
 .footerShow {
   opacity: 1;
+}
+
+// 響應式網站
+// 1200px以下
+@media (max-width: 1200px) {
+  .footerBox {
+    font-size: 18px;
+  }
+}
+
+// 992px以下
+@media (max-width: 992px) {
+  .footerBox {
+    font-size: 13.5px;
+  }
+}
+
+// 768px以下
+@media (max-width: 768px) {
+  .footerBox {
+    font-size: 16px;
+    height: 100%;
+
+    .footTop {
+      flex-direction: column;
+
+      .content {
+        margin-top: 10px;
+
+        p {
+          font-size: 1.2em;
+        }
+      }
+
+      .link {
+        margin-top: 10px;
+      }
+    }
+
+    .footBottom {
+      p {
+        font-size: 1.2em;
+      }
+    }
+  }
 }
 </style>

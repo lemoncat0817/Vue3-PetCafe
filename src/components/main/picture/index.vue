@@ -2,10 +2,10 @@
   <div class="pictureBox">
     <div class="title" :class="{ 'titleShow': isShowTitle }">
       <h1>評論&用餐環境</h1>
-      <p>我們一直努力為每一位顧客提供最好的用餐體驗，</p>
-      <p>並且對於您的肯定感到非常欣慰。</p>
-      <p>我們精心設計的用餐環境融合了舒適和美感，</p>
-      <p>為您和您的寵物提供了一個愉快的用餐場所。</p>
+      <p>我們一直努力為每一位顧客提供最好的用餐體驗，<br>
+        並且對於您的肯定感到非常欣慰。</p>
+      <p>我們精心設計的用餐環境融合了舒適和美感，<br>
+        為您和您的寵物提供了一個愉快的用餐場所。</p>
     </div>
     <div class="content" :class="{ 'contentShow': isShowContent }">
       <div class="comment">
@@ -16,10 +16,10 @@
           </el-icon>
         </h1>
         <div class="carousel">
-          <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none"
+          <el-carousel :interval="3000" arrow="never" style="width: 80%; height: 80%;" indicator-position="none"
             :pause-on-hover="false">
             <el-carousel-item v-for="item in comment" :key="item">
-              <img style="width: 350px; height: 250px;" :src="item.img" alt="" />
+              <img :src="item.img" alt="" />
               <h3>{{ item.text }}</h3>
             </el-carousel-item>
           </el-carousel>
@@ -28,9 +28,9 @@
       <div class="restaurant">
         <h1> 用餐環境 </h1>
         <div class="carousel">
-          <el-carousel :interval="3000" arrow="never" style="width: 350px; height: 300px;" indicator-position="none">
+          <el-carousel :interval="3000" arrow="never" style="width: 80%; height: 80%;" indicator-position="none">
             <el-carousel-item v-for="item in restaurant" :key="item">
-              <img style="width: 350px; height: 300px;" :src="item.img" alt="" />
+              <img :src="item.img" alt="" />
             </el-carousel-item>
           </el-carousel>
         </div>
@@ -48,8 +48,6 @@ const isShowContent = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示菜單
     if (scrollPosition.value >= 3900) {
       isShowTitle.value = true
     }
@@ -134,7 +132,7 @@ const restaurant = ref([
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     height: 100%;
     margin-top: 20px;
     opacity: 0;
@@ -169,7 +167,7 @@ const restaurant = ref([
     align-items: center;
     width: 100%;
     height: 100%;
-    transform: translateX(100px);
+    transform: translateY(100px);
     transition: all 1.2s ease-in-out;
     opacity: 0;
 
@@ -191,8 +189,8 @@ const restaurant = ref([
       }
 
       .carousel {
-        width: 450px;
-        height: 400px;
+        width: 60%;
+        height: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -205,6 +203,8 @@ const restaurant = ref([
 
           img {
             border-radius: 20px;
+            width: 100%;
+            height: 85%;
           }
 
           h3 {
@@ -237,8 +237,8 @@ const restaurant = ref([
       }
 
       .carousel {
-        width: 450px;
-        height: 400px;
+        width: 60%;
+        height: 60%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -249,6 +249,8 @@ const restaurant = ref([
           border-radius: 20px;
 
           img {
+            width: 100%;
+            height: 100%;
             cursor: pointer;
             border-radius: 20px;
 
@@ -263,8 +265,60 @@ const restaurant = ref([
   }
 
   .contentShow {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
+  }
+}
+
+// 響應式網站
+//  992px以下
+@media (max-width: 992px) {
+  .pictureBox {
+    font-size: 18px;
+
+    .content {
+      .comment {
+        .carousel {
+          width: 90%;
+        }
+      }
+
+      .restaurant {
+        .carousel {
+          width: 90%;
+        }
+      }
+    }
+  }
+}
+
+//  768px以下
+@media (max-width: 768px) {
+  .pictureBox {
+    height: 100%;
+    font-size: 20px;
+
+    .content {
+      flex-direction: column;
+
+      .comment {
+        width: 80%;
+        margin: 20px 0px;
+
+        .carousel {
+          height: 22em;
+        }
+      }
+
+      .restaurant {
+        width: 80%;
+        margin: 20px 0px;
+
+        .carousel {
+          height: 22em;
+        }
+      }
+    }
   }
 }
 </style>

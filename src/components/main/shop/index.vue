@@ -29,8 +29,6 @@ const isShowContent = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示菜單
     if (scrollPosition.value >= 3000) {
       isShowTitle.value = true
     }
@@ -102,7 +100,7 @@ const commodity = ref([
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     height: 100%;
     margin-top: 20px;
     opacity: 0;
@@ -165,7 +163,6 @@ const commodity = ref([
       }
 
       h1 {
-        height: 50px;
         font-size: 1.5em;
         font-weight: 700;
         color: #5a4034;
@@ -173,22 +170,22 @@ const commodity = ref([
       }
 
       h2 {
-        height: 30px;
         font-size: 1em;
         font-weight: 700;
         color: #5a4034;
-        margin-bottom: 10px;
+        margin: 10px 0px;
         font-family: DFKai-SB;
+
       }
 
       p {
+        width: 80%;
         height: 100px;
         font-size: 0.8em;
         font-weight: 400;
         color: #654735;
         line-height: 26px;
         text-align: center;
-        margin: 10px 30px;
       }
     }
 
@@ -197,6 +194,41 @@ const commodity = ref([
       transform: translateX(0);
     }
   }
+}
 
+// 響應式網站
+//  992px以下
+@media (max-width: 992px) {
+  .shopBox {
+    font-size: 18px;
+
+    .content {
+      .commodity {
+        width: 30%;
+      }
+    }
+  }
+}
+
+//  768px以下
+@media (max-width: 768px) {
+  .shopBox {
+    font-size: 18px;
+    height: 100%;
+
+    .title {
+      width: 80%;
+    }
+
+    .content {
+      flex-direction: column;
+
+      .commodity {
+        width: 80%;
+        height: 31em;
+        margin: 20px 0;
+      }
+    }
+  }
 }
 </style>

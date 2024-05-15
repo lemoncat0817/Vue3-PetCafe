@@ -1,41 +1,100 @@
 <template>
   <div>
-    <div class="headerBox">
+    <div class="headerBox" :class="{ 'headerFixed': isFixedHeader }">
       <div class="logo">
         <img src="@/assets/header/logo.png" alt="Logo">
         <h1>LOHAS Pets Café</h1>
       </div>
       <div class="menu">
-        <el-anchor class="anchor" :offset="70" direction="horizontal" style="width: 565px; border-radius: 20px;">
+        <el-anchor class="anchor" :offset="70" direction="horizontal">
           <el-anchor-link style="margin-left: 10px; " :href="welcome">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6; ">{{ welcomePage }}</span>
+            <span>{{ welcomePage }}</span>
           </el-anchor-link>
           <el-anchor-link :href="about">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6;">{{ aboutPage }}</span>
+            <span>{{ aboutPage }}</span>
           </el-anchor-link>
           <el-anchor-link :href="menu">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6;">{{ menuPage }}</span>
+            <span>{{ menuPage }}</span>
           </el-anchor-link>
           <el-anchor-link :href="staff">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6;">{{ staffPage }}</span>
+            <span>{{ staffPage }}</span>
           </el-anchor-link>
           <el-anchor-link :href="shop">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6;">{{ shopPage }}</span>
+            <span>{{ shopPage }}</span>
           </el-anchor-link>
           <el-anchor-link :href="picture">
-            <span style="font-size: 18px; font-weight: bold; color: #ADD8E6;">{{ picturePage }}</span>
+            <span>{{ picturePage }}</span>
           </el-anchor-link>
         </el-anchor>
+      </div>
+      <div class="dropDown">
+        <el-dropdown trigger="click" placement="bottom-start">
+          <el-icon class="iconContent">
+            <Menu class="icon" />
+          </el-icon>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>
+                <div class="dropDownMenu">
+                  <el-anchor class="anchor" :offset="70" direction="horizontal">
+                    <el-anchor-link style="margin-left: 5px; " :href="welcome">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ welcomePage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="about">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ aboutPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="menu">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ menuPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="staff">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ staffPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="shop">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ shopPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="picture">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ picturePage }}</span>
+                    </el-anchor-link>
+                  </el-anchor>
+                </div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+// 引入倉庫
 import { useScrollIntoViewStore } from '@/store/scrollIntoView'
 const scrollIntoViewStore = useScrollIntoViewStore()
-import { ref, onMounted, nextTick } from 'vue'
-
+import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
+// 控制是否顯示菜單
+const isFixedHeader = ref(false)
+// 控制是否顯示導航
+const isShowNav = ref(false)
+// 儲存監聽滾動位置的變數
+const scrollPosition = ref(0)
+// 監聽滾動位置
+const handleScroll = () => {
+  scrollPosition.value = window.scrollY
+}
+// 在組件掛載後添加監聽事件
+// 以便在組件卸載時移除監聽事件
+// 避免造成資源浪費
+// 組件掛載
+onMounted(() => {
+  // 添加監聽事件
+  window.addEventListener('scroll', handleScroll)
+})
+// 組件卸載
+onBeforeUnmount(() => {
+  // 移除監聽事件
+  window.removeEventListener('scroll', handleScroll)
+})
+// 定義要滾動到的組件名稱及其id
 const welcome = ref('')
 const welcomePage = ref('主頁')
 const about = ref('')
@@ -48,9 +107,19 @@ const shop = ref('')
 const shopPage = ref('寵物零食')
 const picture = ref('')
 const picturePage = ref('評論&用餐環境')
-
-
+// 組件成功渲染後
 nextTick(() => {
+  // 監聽滾動位置變化
+  watch(() => scrollPosition.value, () => {
+    // 如果高度大於或等於360
+    // 則顯示菜單
+    if (scrollPosition.value >= 50) {
+      isFixedHeader.value = true
+    } else {
+      isFixedHeader.value = false
+    }
+  })
+  // 獲取組件id
   if (scrollIntoViewStore.welcome) {
     welcome.value = `#${scrollIntoViewStore.welcome.id}`
   }
@@ -72,16 +141,13 @@ nextTick(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .headerBox {
   width: 100%;
   height: 120px;
   background: #ADD8E6;
-  border-bottom-left-radius: 15%;
-  border-bottom-right-radius: 15%;
   opacity: .8;
   z-index: 1;
-  position: fixed;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -92,7 +158,7 @@ nextTick(() => {
     display: flex;
     align-items: center;
     height: 100%;
-    width: 30%;
+    width: 100%;
     margin-left: 20px;
 
     img {
@@ -114,13 +180,51 @@ nextTick(() => {
   }
 
   .menu {
-    width: 70%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 
     .anchor {
-      float: right;
-      margin-right: 20px;
+      margin-right: 10px;
+      width: 28em;
+      border-radius: 20px;
+
+      span {
+        font-size: 1.5em;
+        font-weight: bold;
+        color: #ADD8E6;
+      }
     }
   }
+
+  .dropDown {
+    .iconContent {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+        color: #ADD8E6;
+      }
+    }
+  }
+}
+
+
+.headerFixed {
+  position: fixed;
+  border-bottom-left-radius: 15%;
+  border-bottom-right-radius: 15%;
 }
 
 // 文字閃爍效果
@@ -131,6 +235,36 @@ nextTick(() => {
 
   to {
     background-position: 100% 100%;
+  }
+}
+
+// 響應式網站
+// 1200px以下
+@media (max-width: 1200px) {
+  .headerBox {
+    font-size: 18px;
+  }
+}
+
+// 992px以上
+@media (min-width: 993px) {
+  .headerBox {
+    .dropDown {
+      display: none;
+    }
+  }
+}
+
+//  992px以下
+@media (max-width: 992px) {
+  .headerBox {
+    .logo {
+      justify-content: center;
+    }
+
+    .menu {
+      display: none;
+    }
   }
 }
 </style>

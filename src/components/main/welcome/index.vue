@@ -39,10 +39,28 @@
     h4 {
       margin-top: 20px;
       font-size: 1.5em;
+      font-weight: bold;
       color: #fff;
       text-shadow: 3.5px 2px 1px #ff0054;
       transition: text-shadow 1.5s ease-in-out;
     }
+  }
+}
+
+// 響應式網站
+//  992px以下
+@media (max-width: 992px) {
+  .welcomeBox {
+    font-size: 15px;
+    height: 972px;
+  }
+}
+
+//  768px以下
+@media (max-width: 768px) {
+  .welcomeBox {
+    font-size: 12px;
+    height: 540px;
   }
 }
 </style>

@@ -15,5 +15,4 @@ const pinia = createPinia()
 app.use(pinia)
 // 重設scss
 import '@/styles/reset.scss'
-
 app.mount('#app')

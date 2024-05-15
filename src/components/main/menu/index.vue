@@ -3,18 +3,18 @@
     <div class="menuLeft">
       <div class="menuText" :class="{ 'menuShow': isShowMenu }">
         <h1>美味佳餚</h1>
-        <p style="font-size: 24px; font-weight: bold;">本店最熱門的餐點</p>
+        <p><span>本店最熱門的餐點</span></p>
         <p>
-          <span style="font-weight: bold; font-size: 24px;">主食-香烤蔬菜沙拉</span>
-          ，選用新鮮的時令蔬菜經過特製調味後香烤而成，搭配新鮮沙拉葉、堅果和特製醬汁，清新可口，是健康飲食的首選。
+          <span>主食-香烤蔬菜沙拉</span>
+          選用新鮮的時令蔬菜經過特製調味後香烤而成，搭配新鮮沙拉葉、堅果和特製醬汁，清新可口，是健康飲食的首選。
         </p>
         <p>
-          <span style="font-weight: bold; font-size: 24px;">特調飲品-草莓冰沙</span>
-          ，選用新鮮成熟的草莓，搭配冰塊和少許糖漿，打造清涼解渴的夏日必備飲品，味道清新酸甜。
+          <span>特調飲品-草莓冰沙</span>
+          選用新鮮成熟的草莓，搭配冰塊和少許糖漿，打造清涼解渴的夏日必備飲品，味道清新酸甜。
         </p>
         <p>
-          <span style="font-weight: bold; font-size: 24px;">寵物餐點-寵物草莓冰淇淋</span>
-          ，使用新鮮的草莓和特製配方製作而成，口感柔軟，清涼可口，是您的寵物在夏日的最愛零食之一。
+          <span>寵物餐點-寵物草莓冰淇淋</span>
+          使用新鮮的草莓和特製配方製作而成，口感柔軟，清涼可口，是您的寵物在夏日的最愛零食之一。
         </p>
         <p>這些菜單選項旨在為您和您的寵物提供多樣化、美味和均衡的飲食體驗，我們期待為您提供一個愉悅的用餐體驗。</p>
       </div>
@@ -33,9 +33,7 @@ const isShowMenu = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示菜單
-    if (scrollPosition.value >= 1180) {
+    if (scrollPosition.value >= 1320) {
       isShowMenu.value = true
     }
   })
@@ -106,6 +104,11 @@ onBeforeUnmount(() => {
         text-align: center;
         margin: 10px 0;
       }
+
+      span {
+        font-weight: bold;
+        font-size: 1.2em;
+      }
     }
 
     .menuShow {
@@ -116,7 +119,7 @@ onBeforeUnmount(() => {
   .menuRight {
     width: 55%;
     height: 100%;
-    transform: translateX(100px);
+    transform: translateY(-100px);
     transition: all 1.2s ease-in-out;
     opacity: 0;
 
@@ -127,8 +130,41 @@ onBeforeUnmount(() => {
   }
 
   .menuImgShow {
-    transform: translateX(0);
+    transform: translateY(0);
     opacity: 1;
+  }
+}
+
+// 響應式網站
+//  992px以下
+@media (max-width: 992px) {
+  .menuBox {
+    .menuLeft {
+      font-size: 15px;
+    }
+  }
+}
+
+//  768px以下
+@media (max-width: 768px) {
+  .menuBox {
+    flex-direction: column;
+    height: 100%;
+
+    .menuLeft {
+      font-size: 20px;
+      width: 100%;
+      height: 50%;
+
+      .menuText {
+        margin-top: 20px;
+      }
+    }
+
+    .menuRight {
+      width: 100%;
+      height: 50%;
+    }
   }
 }
 </style>

@@ -5,7 +5,7 @@
     </div>
     <div class="aboutRight">
       <div class="story" :class="{ 'storyShow': isShowStory }">
-        <h1>創立故事</h1>
+        <h1>關於我們</h1>
         <p> 在一個晴朗的下午，<br>幾個寵物愛好者聚在一起喝咖啡，<br>分享著彼此的愛護毛孩子的故事。</p>
         <p>他們意識到，<br>在城市中找到一個寵物友好的地方並不容易，<br>而大多數咖啡廳都不允許寵物進入。</p>
         <p>這個想法在他們之間迅速發酵，<br>於是他們決定創立一個獨特的咖啡廳，<br>一個可以讓人們和他們的毛孩子一起放鬆的地方。</p>
@@ -23,8 +23,6 @@ const isShowStory = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示故事
     if (scrollPosition.value >= 360) {
       isShowStory.value = true
     }
@@ -89,7 +87,7 @@ onBeforeUnmount(() => {
     font-family: 'monospace', DFKai-SB;
 
     .story {
-      width: 60%;
+      width: 80%;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -118,6 +116,34 @@ onBeforeUnmount(() => {
 
     .storyShow {
       opacity: 1;
+    }
+  }
+}
+
+// 響應式網站
+//  992px以下
+@media (max-width: 992px) {
+  .aboutBox {
+    .aboutRight {
+      font-size: 15px;
+    }
+  }
+}
+
+//  768px以下
+@media (max-width: 768px) {
+  .aboutBox {
+    flex-direction: column-reverse;
+
+    .aboutLeft {
+      width: 100%;
+      height: 50%;
+    }
+
+    .aboutRight {
+      font-size: 20px;
+      width: 100%;
+      height: 50%;
     }
   }
 }

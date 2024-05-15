@@ -3,8 +3,8 @@
     <div class="title" :class="{ 'titleShow': isShowTitle }">
       <h1>毛孩子天地</h1>
       <p>這些可愛的寵物們每天都在這裡迎接著訪客，帶來無盡的歡樂和愛意。 </p>
-      <p>無論你是想與他們一起玩耍、享受陽光，還是只是想給他們一個溫暖的擁抱，</p>
-      <p>這裡都是你和寵物共度美好時光的最佳場所！</p>
+      <p>無論你是想與他們一起玩耍、享受陽光，還是只是想給他們一個溫暖的擁抱，<br>
+        這裡都是你和寵物共度美好時光的最佳場所！</p>
     </div>
     <div class="content">
       <div class="pets" v-for="item in pets" :key="item.name" :class="{ 'contentShow': isShowContent }">
@@ -25,8 +25,6 @@ const isShowContent = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示菜單
     if (scrollPosition.value >= 2200) {
       isShowTitle.value = true
     }
@@ -101,7 +99,7 @@ const pets = ref([
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     height: 100%;
     margin-top: 20px;
     opacity: 0;
@@ -170,13 +168,13 @@ const pets = ref([
       }
 
       p {
-        height: 100px;
+        width: 80%;
+        height: 120px;
         font-size: 0.8em;
         font-weight: 400;
         color: #654735;
         line-height: 26px;
         text-align: center;
-        margin: 10px 30px;
       }
     }
 
@@ -185,7 +183,64 @@ const pets = ref([
       opacity: 1;
     }
   }
+}
 
+// 響應式網站
+// 1200px以下
+@media (max-width: 1200px) {
+  .staffBox {
+    .content {
+      .pets {
+        h1 {
+          font-size: 1.15em;
+        }
+      }
+    }
+  }
+}
 
+//  992px以下
+@media (max-width: 992px) {
+  .staffBox {
+    width: 100%;
+    font-size: 18px;
+
+    .content {
+      .pets {
+        h1 {
+          font-size: 0.95em;
+        }
+      }
+    }
+  }
+}
+
+// 768px以下
+@media (max-width: 768px) {
+  .staffBox {
+    font-size: 20px;
+    height: 100%;
+
+    .title {
+      width: 80%;
+    }
+
+    .content {
+      margin-top: 20px;
+      flex-direction: column;
+
+      .pets {
+        width: 80%;
+
+        h1 {
+          font-size: 1.8em;
+        }
+
+        p {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
 }
 </style>

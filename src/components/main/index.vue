@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mainBox">
     <Welcome id="welcome" />
     <About id="about" />
     <Menu id="menu" />
@@ -32,5 +32,4 @@ onMounted(() => {
 
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>
