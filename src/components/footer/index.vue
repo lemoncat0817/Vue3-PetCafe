@@ -7,11 +7,9 @@
         <p><span style="margin-right: 5px; font-weight: bold;">餐廳地址:</span>貓貓市 肥貓區 貓爪路三段 貓尾巷5號</p>
       </div>
       <div class="link">
-
         <p>可以追蹤我們的<span style="font-weight: bold;">FaceBook</span>
           <img src="@/assets/footer/facebook.png" alt="facebook">以及<span style=" font-weight: bold;">Instagram</span>
-          <img src="@/assets/footer/instagram.png" alt="instagram">
-          來獲得最新資訊
+          <img src="@/assets/footer/instagram.png" alt="instagram"> 來獲得最新資訊
         </p>
       </div>
     </div>
@@ -138,15 +136,15 @@ onBeforeUnmount(() => {
 }
 
 // 響應式網站
-// 1200px以下
-@media (max-width: 1200px) {
+// 1280px以下
+@media (max-width: 1280px) {
   .footerBox {
     font-size: 18px;
   }
 }
 
-// 992px以下
-@media (max-width: 992px) {
+// 1024px以下
+@media (max-width: 1024px) {
   .footerBox {
     font-size: 13.5px;
   }
@@ -177,6 +175,89 @@ onBeforeUnmount(() => {
     .footBottom {
       p {
         font-size: 1.2em;
+      }
+    }
+  }
+}
+
+// 576px以下
+@media (max-width: 576px) {
+  .footerBox {
+    font-size: 15px;
+
+    .footTop {
+      .content {
+        p {
+          font-size: 1.2em;
+        }
+      }
+
+      .link {
+        margin: 5px 5px;
+
+        p {
+          font-size: 1em;
+        }
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .footBottom {
+      p {
+        font-size: 1.05em;
+      }
+    }
+  }
+}
+
+// 420px以下
+@media (max-width: 420px) {
+  .footerBox {
+    font-size: 14px;
+
+    .footTop {
+      .link {
+        p {
+          font-size: 0.95em;
+        }
+
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+    }
+
+    .footBottom {
+      margin: 10px 5px;
+
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+// 375px以下
+@media (max-width: 375px) {
+  .footerBox {
+    font-size: 12px;
+
+    .footTop {
+      .link {
+        p {
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    .footBottom {
+      p {
+        font-size: 0.95em;
       }
     }
   }

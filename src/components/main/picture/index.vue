@@ -186,6 +186,7 @@ const restaurant = ref([
         margin-bottom: 10px;
         font-family: DFKai-SB;
         margin-bottom: 30px;
+        height: 50px;
       }
 
       .carousel {
@@ -213,6 +214,7 @@ const restaurant = ref([
             height: 50px;
             text-align: center;
             line-height: 50px;
+            font-size: 1.2em;
           }
         }
       }
@@ -234,6 +236,7 @@ const restaurant = ref([
         margin-bottom: 10px;
         font-family: DFKai-SB;
         margin-bottom: 30px;
+        height: 50px;
       }
 
       .carousel {
@@ -271,8 +274,79 @@ const restaurant = ref([
 }
 
 // 響應式網站
-//  992px以下
-@media (max-width: 992px) {
+// 1600px以下
+@media (max-width: 1600px) {
+  .pictureBox {
+    .content {
+      .comment {
+        .carousel {
+
+          .el-carousel__item {
+            h3 {
+              font-size: 1em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 1440px以下
+@media (max-width: 1440px) {
+  .pictureBox {
+    .content {
+      .comment {
+        .carousel {
+          height: 60%;
+        }
+      }
+
+      .restaurant {
+        .carousel {
+          height: 60%;
+        }
+      }
+    }
+  }
+}
+
+// 1366px以下
+@media (max-width: 1366px) {
+  .pictureBox {
+    .content {
+      .comment {
+        .carousel {
+          .el-carousel__item {
+            h3 {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+// 1280px以下
+@media (max-width: 1280px) {
+  .pictureBox {
+    .content {
+      .comment {
+        .carousel {
+          width: 75%;
+          .el-carousel__item {
+            h3 {
+              font-size: 0.95em;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  1024px以下
+@media (max-width: 1024px) {
   .pictureBox {
     font-size: 18px;
 
@@ -280,6 +354,12 @@ const restaurant = ref([
       .comment {
         .carousel {
           width: 90%;
+
+          .el-carousel__item {
+            h3 {
+              font-size: 0.9em;
+            }
+          }
         }
       }
 
@@ -302,20 +382,155 @@ const restaurant = ref([
       flex-direction: column;
 
       .comment {
-        width: 80%;
+        width: 90%;
         margin: 20px 0px;
 
         .carousel {
-          height: 22em;
+          height: 19em;
+
+          .el-carousel__item {
+            h3 {
+              font-size: 1.1em;
+            }
+          }
         }
       }
 
       .restaurant {
-        width: 80%;
+        width: 90%;
         margin: 20px 0px;
 
         .carousel {
-          height: 22em;
+          height: 19em;
+        }
+      }
+    }
+  }
+}
+
+//  576px以下
+@media (max-width: 576px) {
+  .pictureBox {
+    font-size: 20px;
+
+    .content {
+      .comment {
+        width: 100%;
+
+        h1 {
+          font-size: 1.75em;
+        }
+
+        .carousel {
+          height: 18.5em;
+
+          .el-carousel__item {
+            h3 {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+
+      .restaurant {
+        width: 100%;
+
+        h1 {
+          font-size: 1.75em;
+        }
+
+        .carousel {
+          height: 18.5em;
+        }
+      }
+    }
+  }
+}
+
+//  420px以下
+@media (max-width: 420px) {
+  .pictureBox {
+    .content {
+      margin-bottom: 10px;
+
+      .comment {
+        h1 {
+          font-size: 1.65em;
+        }
+
+        .carousel {
+          height: 13.5em;
+
+          .el-carousel__item {
+            h3 {
+              font-size: 0.8em;
+            }
+
+            img {
+              height: 60%;
+            }
+          }
+        }
+      }
+
+      .restaurant {
+        h1 {
+          font-size: 1.65em;
+        }
+
+        .carousel {
+          height: 13.5em;
+
+          .el-carousel__item {
+            img {
+              height: 70%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//  375px以下
+@media (max-width: 375px) {
+  .pictureBox {
+    font-size: 16px;
+
+    .content {
+      .comment {
+        h1 {
+          font-size: 1.75em;
+        }
+
+        .carousel {
+          height: 16em;
+
+          .el-carousel__item {
+            h3 {
+              font-size: 0.9em;
+            }
+
+            img {
+              height: 55%;
+            }
+          }
+        }
+      }
+
+      .restaurant {
+        h1 {
+          font-size: 1.75em;
+        }
+
+        .carousel {
+          height: 16em;
+
+          .el-carousel__item {
+            img {
+              height: 65%;
+            }
+          }
         }
       }
     }

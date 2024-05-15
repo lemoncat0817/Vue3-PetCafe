@@ -138,7 +138,7 @@ const commodity = ref([
 
     .commodity {
       width: 25%;
-      height: 80%;
+      height: 70%;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -151,7 +151,7 @@ const commodity = ref([
 
       img {
         width: 80%;
-        height: 300px;
+        height: 260px;
         border-radius: 20px;
         margin-bottom: 20px;
         cursor: pointer;
@@ -197,14 +197,30 @@ const commodity = ref([
 }
 
 // 響應式網站
-//  992px以下
-@media (max-width: 992px) {
+//  1440px以下
+@media (max-width: 1440px) {
   .shopBox {
-    font-size: 18px;
-
     .content {
       .commodity {
         width: 30%;
+      }
+    }
+  }
+}
+
+//  1024px以下
+@media (max-width: 1024px) {
+  .shopBox {
+    font-size: 17px;
+
+    .content {
+      .commodity {
+        height: 60%;
+
+        img {
+          width: 70%;
+          height: 200px;
+        }
       }
     }
   }
@@ -224,9 +240,70 @@ const commodity = ref([
       flex-direction: column;
 
       .commodity {
-        width: 80%;
-        height: 31em;
+        width: 65%;
+        height: 28em;
         margin: 20px 0;
+
+        p {
+          font-size: 1em;
+        }
+
+        img {
+          width: 80%;
+          height: 260px;
+        }
+      }
+    }
+  }
+}
+
+// 576px以下
+@media (max-width: 576px) {
+  .shopBox {
+    font-size: 16px;
+
+    .content {
+      .commodity {
+        width: 75%;
+        height: 30em;
+
+        img {
+          height: 240px;
+        }
+      }
+    }
+  }
+}
+
+// 420px以下
+@media (max-width: 420px) {
+  .shopBox {
+    font-size: 14px;
+
+    .content {
+      .commodity {
+
+        img {
+          height: 200px;
+        }
+      }
+    }
+  }
+}
+
+// 375px以下
+@media (max-width: 375px) {
+  .shopBox {
+    font-size: 12px;
+
+    .content {
+      .commodity {
+        width: 80%;
+        height: 33em;
+
+        img {
+          height: 180px;
+        }
       }
     }
   }

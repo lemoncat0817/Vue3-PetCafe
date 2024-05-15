@@ -186,21 +186,25 @@ const pets = ref([
 }
 
 // 響應式網站
-// 1200px以下
-@media (max-width: 1200px) {
+// 1280px以下
+@media (max-width: 1280px) {
   .staffBox {
     .content {
       .pets {
         h1 {
           font-size: 1.15em;
         }
+
+        img {
+          height: 220px;
+        }
       }
     }
   }
 }
 
-//  992px以下
-@media (max-width: 992px) {
+//  1024px以下
+@media (max-width: 1024px) {
   .staffBox {
     width: 100%;
     font-size: 18px;
@@ -210,6 +214,10 @@ const pets = ref([
         h1 {
           font-size: 0.95em;
         }
+
+        img {
+          height: 180px;
+        }
       }
     }
   }
@@ -218,7 +226,7 @@ const pets = ref([
 // 768px以下
 @media (max-width: 768px) {
   .staffBox {
-    font-size: 20px;
+    font-size: 18px;
     height: 100%;
 
     .title {
@@ -237,7 +245,69 @@ const pets = ref([
         }
 
         p {
-          font-size: 1.1em;
+          font-size: 1.2em;
+        }
+
+        img {
+          width: 50%;
+          height: 220px;
+        }
+      }
+    }
+  }
+}
+
+// 576px以下
+@media (max-width: 576px) {
+  .staffBox {
+    .content {
+      .pets {
+        h1 {
+          font-size: 1.6em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+
+        img {
+          height: 180px;
+        }
+      }
+    }
+  }
+}
+
+// 420px以下
+@media (max-width: 420px) {
+  .staffBox {
+    .content {
+      .pets {
+        h1 {
+          font-size: 1.4em;
+        }
+
+        p {
+          font-size: 0.9em;
+        }
+
+        img {
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
+// 375px以下
+@media (max-width: 375px) {
+  .staffBox {
+    font-size: 16px;
+
+    .content {
+      .pets {
+        img {
+          height: 140px;
         }
       }
     }

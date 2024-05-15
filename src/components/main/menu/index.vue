@@ -136,8 +136,8 @@ onBeforeUnmount(() => {
 }
 
 // 響應式網站
-//  992px以下
-@media (max-width: 992px) {
+//  1024px以下
+@media (max-width: 1024px) {
   .menuBox {
     .menuLeft {
       font-size: 15px;
@@ -157,13 +157,31 @@ onBeforeUnmount(() => {
       height: 50%;
 
       .menuText {
-        margin-top: 20px;
+        margin: 20px 0px;
       }
     }
 
     .menuRight {
       width: 100%;
       height: 50%;
+    }
+  }
+}
+
+//  576px以下
+@media (max-width: 576px) {
+  .menuBox {
+    .menuLeft {
+      font-size: 18px;
+    }
+  }
+}
+
+//  375px以下
+@media (max-width: 375px) {
+  .menuBox {
+    .menuLeft {
+      font-size: 16px;
     }
   }
 }

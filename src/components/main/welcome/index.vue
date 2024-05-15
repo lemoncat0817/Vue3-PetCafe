@@ -38,7 +38,7 @@
 
     h4 {
       margin-top: 20px;
-      font-size: 1.5em;
+      font-size: 2em;
       font-weight: bold;
       color: #fff;
       text-shadow: 3.5px 2px 1px #ff0054;
@@ -48,11 +48,19 @@
 }
 
 // 響應式網站
-//  992px以下
-@media (max-width: 992px) {
+//  1280px以下
+@media (max-width: 1280px) {
+  .welcomeBox {
+    font-size: 17px;
+    height: 864px;
+  }
+}
+
+//  1024px以下
+@media (max-width: 1024px) {
   .welcomeBox {
     font-size: 15px;
-    height: 972px;
+    height: 756px;
   }
 }
 
@@ -61,6 +69,30 @@
   .welcomeBox {
     font-size: 12px;
     height: 540px;
+  }
+}
+
+//  576px以下
+@media (max-width: 576px) {
+  .welcomeBox {
+    font-size: 9px;
+    height: 486px;
+  }
+}
+
+//  420px以下
+@media (max-width: 420px) {
+  .welcomeBox {
+    font-size: 8px;
+    height: 432px;
+  }
+}
+
+//  375px以下
+@media (max-width: 375px) {
+  .welcomeBox {
+    font-size: 7px;
+    height: 324px;
   }
 }
 </style>

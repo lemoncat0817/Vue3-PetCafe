@@ -62,6 +62,41 @@
           </template>
         </el-dropdown>
       </div>
+      <div class="dropDownVertical">
+        <el-dropdown trigger="click" placement="bottom-start">
+          <el-icon class="iconContent">
+            <Menu class="icon" />
+          </el-icon>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item>
+                <div class="dropDownMenu">
+                  <el-anchor class="anchor" :offset="70">
+                    <el-anchor-link style="margin-left: 5px; " :href="welcome">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ welcomePage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="about">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ aboutPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="menu">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ menuPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="staff">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ staffPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="shop">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ shopPage }}</span>
+                    </el-anchor-link>
+                    <el-anchor-link :href="picture">
+                      <span style="font-size: 1.2em; font-weight: bold; color: #ADD8E6; ">{{ picturePage }}</span>
+                    </el-anchor-link>
+                  </el-anchor>
+                </div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -144,7 +179,7 @@ nextTick(() => {
 <style lang="scss">
 .headerBox {
   width: 100%;
-  height: 120px;
+  height: 100px;
   background: #ADD8E6;
   opacity: .8;
   z-index: 1;
@@ -218,6 +253,26 @@ nextTick(() => {
       }
     }
   }
+
+  .dropDownVertical {
+    .iconContent {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      background: white;
+      border-radius: 10px;
+      margin-right: 10px;
+      cursor: pointer;
+
+      .icon {
+        width: 100%;
+        height: 100%;
+        color: #ADD8E6;
+      }
+    }
+  }
 }
 
 
@@ -239,15 +294,19 @@ nextTick(() => {
 }
 
 // 響應式網站
-// 1200px以下
-@media (max-width: 1200px) {
+// 1280px以下
+@media (max-width: 1280px) {
   .headerBox {
-    font-size: 18px;
+    .logo {
+      h1 {
+        font-size: 1.8em;
+      }
+    }
   }
 }
 
-// 992px以上
-@media (min-width: 993px) {
+// 1024px以上
+@media (min-width: 1025px) {
   .headerBox {
     .dropDown {
       display: none;
@@ -255,8 +314,8 @@ nextTick(() => {
   }
 }
 
-//  992px以下
-@media (max-width: 992px) {
+//  1024px以下
+@media (max-width: 1024px) {
   .headerBox {
     .logo {
       justify-content: center;
@@ -264,6 +323,78 @@ nextTick(() => {
 
     .menu {
       display: none;
+    }
+  }
+}
+
+//  576px以上
+@media (min-width: 577px) {
+  .headerBox {
+    .dropDownVertical {
+      display: none;
+    }
+  }
+}
+
+//  576px以下
+@media (max-width: 576px) {
+  .headerBox {
+    height: 80px;
+    font-size: 15px;
+
+    .logo {
+      img {
+        width: 70px;
+        height: 70px;
+      }
+    }
+
+    .dropDown {
+      display: none;
+    }
+
+    .dropDownVertical {
+      .iconContent {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+// 420px以下
+@media (max-width: 420px) {
+  .headerBox {
+    height: 70px;
+    font-size: 13px;
+
+    .logo {
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+}
+
+// 375px以下
+@media (max-width: 375px) {
+  .headerBox {
+    height: 60px;
+    font-size: 10px;
+
+    .logo {
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+
+    .dropDownVertical {
+      .iconContent {
+        width: 40px;
+        height: 40px;
+      }
     }
   }
 }

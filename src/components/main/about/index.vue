@@ -121,9 +121,11 @@ onBeforeUnmount(() => {
 }
 
 // 響應式網站
-//  992px以下
-@media (max-width: 992px) {
+//  1024px以下
+@media (max-width: 1024px) {
   .aboutBox {
+    height: 648px;
+
     .aboutRight {
       font-size: 15px;
     }
@@ -133,6 +135,7 @@ onBeforeUnmount(() => {
 //  768px以下
 @media (max-width: 768px) {
   .aboutBox {
+    height: 100%;
     flex-direction: column-reverse;
 
     .aboutLeft {
@@ -143,7 +146,34 @@ onBeforeUnmount(() => {
     .aboutRight {
       font-size: 20px;
       width: 100%;
-      height: 50%;
+      margin: 20px 0px;
+    }
+  }
+}
+
+//  576px以下
+@media (max-width: 576px) {
+  .aboutBox {
+    .aboutRight {
+      font-size: 18px;
+    }
+  }
+}
+
+//  420px以下
+@media (max-width: 420px) {
+  .aboutBox {
+    .aboutRight {
+      font-size: 17px;
+    }
+  }
+}
+
+//  375px以下
+@media (max-width: 375px) {
+  .aboutBox {
+    .aboutRight {
+      font-size: 14px;
     }
   }
 }
