@@ -25,11 +25,55 @@ const isShowContent = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    if (scrollPosition.value >= 2200) {
-      isShowTitle.value = true
-    }
-    if (scrollPosition.value >= 2300) {
-      isShowContent.value = true
+    if (window.innerWidth > 1280) {
+      if (scrollPosition.value >= 2200) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2300) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 1024) {
+      if (scrollPosition.value >= 2120) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2220) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 768) {
+      if (scrollPosition.value >= 1800) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2140) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 576) {
+      if (scrollPosition.value >= 2700) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2800) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 420) {
+      if (scrollPosition.value >= 2300) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2400) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 375) {
+      if (scrollPosition.value >= 1900) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 2000) {
+        isShowContent.value = true
+      }
+    } else {
+      if (scrollPosition.value >= 1700) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 1800) {
+        isShowContent.value = true
+      }
     }
   })
 })

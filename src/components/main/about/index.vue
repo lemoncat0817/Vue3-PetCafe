@@ -23,8 +23,18 @@ const isShowStory = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    if (scrollPosition.value >= 360) {
-      isShowStory.value = true
+    if (window.innerWidth > 1024) {
+      if (scrollPosition.value >= 360) {
+        isShowStory.value = true
+      }
+    } else if (window.innerWidth > 576) {
+      if (scrollPosition.value >= 200) {
+        isShowStory.value = true
+      }
+    } else {
+      if (scrollPosition.value >= 120) {
+        isShowStory.value = true
+      }
     }
   })
 })
