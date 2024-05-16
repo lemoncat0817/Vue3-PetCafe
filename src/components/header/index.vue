@@ -2,8 +2,8 @@
   <div>
     <div class="headerBox" :class="{ 'headerFixed': isFixedHeader }">
       <div class="logo">
-        <img src="@/assets/header/logo.png" alt="Logo">
-        <h1>LOHAS Pets Café</h1>
+        <img src="@/assets/header/logo.png" alt="Logo" @click="reload">
+        <h1 @click="reload">LOHAS Pets Café</h1>
       </div>
       <div class="menu">
         <el-anchor class="anchor" :offset="70" direction="horizontal">
@@ -106,8 +106,14 @@
 import { ref, watch, onMounted, nextTick, onBeforeUnmount } from 'vue'
 // 控制是否顯示菜單
 const isFixedHeader = ref(false)
-// 控制是否顯示導航
-const isShowNav = ref(false)
+// 刷新頁面
+const reload = () => {
+  if (window.location.hash) {
+    // 如果有錨點，將它移除並重新導航
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+  }
+  window.location.replace(window.location.href)
+}
 // 儲存監聽滾動位置的變數
 const scrollPosition = ref(0)
 // 監聽滾動位置
@@ -166,9 +172,11 @@ nextTick(() => {
     width: 100%;
     margin-left: 20px;
 
+
     img {
       width: 80px;
       height: 80px;
+      cursor: pointer;
     }
 
     h1 {
@@ -181,6 +189,7 @@ nextTick(() => {
       background-position: 0 0;
       background-clip: text;
       animation: shine 7.5s infinite;
+      cursor: pointer;
     }
   }
 
