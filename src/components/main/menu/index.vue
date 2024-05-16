@@ -34,35 +34,35 @@ nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
     if (window.innerWidth > 1280) {
-      if (scrollPosition.value >= 1400) {
+      if (scrollPosition.value >= 1180) {
         isShowMenu.value = true
       }
     } else if (window.innerWidth > 1024) {
-      if (scrollPosition.value >= 1300) {
-        isShowMenu.value = true
-      }
-    } else if (window.innerWidth > 768) {
       if (scrollPosition.value >= 900) {
         isShowMenu.value = true
       }
+    } else if (window.innerWidth > 768) {
+      if (scrollPosition.value >= 660) {
+        isShowMenu.value = true
+      }
     } else if (window.innerWidth > 576) {
-      if (scrollPosition.value >= 1500) {
+      if (scrollPosition.value >= 1080) {
         isShowMenu.value = true
       }
     } else if (window.innerWidth > 420) {
-      if (scrollPosition.value >= 1280) {
+      if (scrollPosition.value >= 800) {
         isShowMenu.value = true
       }
     } else if (window.innerWidth > 375) {
-      if (scrollPosition.value >= 1100) {
+      if (scrollPosition.value >= 700) {
         isShowMenu.value = true
       }
     } else if (window.innerWidth > 320) {
-      if (scrollPosition.value >= 960) {
+      if (scrollPosition.value >= 800) {
         isShowMenu.value = true
       }
     } else {
-      if (scrollPosition.value >= 860) {
+      if (scrollPosition.value >= 700) {
         isShowMenu.value = true
       }
     }

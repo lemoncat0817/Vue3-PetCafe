@@ -23,16 +23,28 @@ const isShowStory = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    if (window.innerWidth > 1024) {
-      if (scrollPosition.value >= 360) {
+    if (window.innerWidth > 1440) {
+      if (scrollPosition.value >= 280) {
+        isShowStory.value = true
+      }
+    } else if (window.innerWidth > 1280) {
+      if (scrollPosition.value >= 320) {
+        isShowStory.value = true
+      }
+    } else if (window.innerWidth > 1024) {
+      if (scrollPosition.value >= 160) {
+        isShowStory.value = true
+      }
+    } else if (window.innerWidth > 768) {
+      if (scrollPosition.value >= 140) {
         isShowStory.value = true
       }
     } else if (window.innerWidth > 576) {
-      if (scrollPosition.value >= 200) {
+      if (scrollPosition.value >= 40) {
         isShowStory.value = true
       }
     } else {
-      if (scrollPosition.value >= 120) {
+      if (scrollPosition.value >= 80) {
         isShowStory.value = true
       }
     }

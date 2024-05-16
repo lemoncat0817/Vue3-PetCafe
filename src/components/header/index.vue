@@ -121,6 +121,10 @@ const handleScroll = () => {
 onMounted(() => {
   // 添加監聽事件
   window.addEventListener('scroll', handleScroll)
+  if (window.location.hash) {
+    // 如果有錨點，將它移除並重新導航
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
+  }
 })
 // 組件卸載
 onBeforeUnmount(() => {
