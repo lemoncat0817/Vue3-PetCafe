@@ -48,11 +48,55 @@ const isShowContent = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    if (scrollPosition.value >= 3900) {
-      isShowTitle.value = true
-    }
-    if (scrollPosition.value >= 4400) {
-      isShowContent.value = true
+    if (window.innerWidth > 1280) {
+      if (scrollPosition.value >= 3900) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 4400) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 1024) {
+      if (scrollPosition.value >= 3900) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 4200) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 768) {
+      if (scrollPosition.value >= 3400) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 3780) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 576) {
+      if (scrollPosition.value >= 6040) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 6540) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 420) {
+      if (scrollPosition.value >= 5500) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 6000) {
+        isShowContent.value = true
+      }
+    } else if (window.innerWidth > 375) {
+      if (scrollPosition.value >= 5080) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 5380) {
+        isShowContent.value = true
+      }
+    } else {
+      if (scrollPosition.value >= 4540) {
+        isShowTitle.value = true
+      }
+      if (scrollPosition.value >= 5000) {
+        isShowContent.value = true
+      }
     }
   })
 })
@@ -327,6 +371,7 @@ const restaurant = ref([
     }
   }
 }
+
 // 1280px以下
 @media (max-width: 1280px) {
   .pictureBox {
@@ -334,6 +379,7 @@ const restaurant = ref([
       .comment {
         .carousel {
           width: 75%;
+
           .el-carousel__item {
             h3 {
               font-size: 0.95em;

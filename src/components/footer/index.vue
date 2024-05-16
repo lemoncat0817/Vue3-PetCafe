@@ -27,10 +27,34 @@ const isShowFooter = ref(false)
 nextTick(() => {
   // 監聽滾動位置變化
   watch(() => scrollPosition.value, () => {
-    // 如果高度大於或等於360
-    // 則顯示菜單
-    if (scrollPosition.value >= 4700) {
-      isShowFooter.value = true
+    if (window.innerWidth > 1280) {
+      if (scrollPosition.value >= 4700) {
+        isShowFooter.value = true
+      }
+    } else if (window.innerWidth > 1024) {
+      if (scrollPosition.value >= 4480) {
+        isShowFooter.value = true
+      }
+    } else if (window.innerWidth > 768) {
+      if (scrollPosition.value >= 4140) {
+        isShowFooter.value = true
+      }
+    } else if (window.innerWidth > 576) {
+      if (scrollPosition.value >= 7200) {
+        isShowFooter.value = true
+      }
+    } else if (window.innerWidth > 420) {
+      if (scrollPosition.value >= 6540) {
+        isShowFooter.value = true
+      }
+    } else if (window.innerWidth > 375) {
+      if (scrollPosition.value >= 5900) {
+        isShowFooter.value = true
+      }
+    } else {
+      if (scrollPosition.value >= 5400) {
+        isShowFooter.value = true
+      }
     }
   })
 })
